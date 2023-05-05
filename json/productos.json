@@ -1,0 +1,88 @@
+{
+    "tecnologia": [
+        {
+            "id": 1,
+            "nombre": "Galaxy Tab S7 FE",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/tablet.jfif"
+        },
+        {
+            "id": 2,
+            "nombre": "Galaxy Buds2 Lavender",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/galaxyBuds.jfif"
+        },
+        {
+            "id": 3,
+            "nombre": "Galaxy Watch4 40mm Gold + Galaxy SmartTag",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/samartwatch.jfif"
+        },
+        {
+            "id": 4,
+            "nombre": "Teclado Samsung Trio 500 Multi Bluetooth Blanco",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/teclado.jfif"
+        },
+        {
+            "id": 5,
+            "nombre": "Samsung Galaxy S22 Ultra 5G 128GB - Reacondicionado - Negro",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/S22.jfif"
+        },
+        {
+            "id": 6,
+            "nombre": "Monitor Samsung Plano 27 IPS 1080p75Hz",
+            "cantidad": 1,
+            "precio":  100000,
+            "img": "./img/monitor.jfif"
+        },
+        {
+            "id": 7,
+            "nombre": "Samsung Galaxy Z Flip3 5G 256GB - Reacondicionado - Crema",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/flip.jfif"
+        },
+        {
+            "id": 8,
+            "nombre": "Samsung Galaxy Tab S6 Lite Azul 10.4 WiFi 64gb + bookcover + lapiz",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/tabs6.jfif"
+        },
+        {
+            "id": 9,
+            "nombre": "Televisor Led 50 AU7090G UHD 4K Smart Tv 2022",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/samrttv.jfif"
+        },
+        {
+            "id": 10,
+            "nombre": "Celular Smartphone Samsung Galaxy Z Fold4 5G 256 GB",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/fold.jfif"
+        },
+        {
+            "id": 11,
+            "nombre": "Celular Samsung Galaxy A51 Dual 4GB 128GB Rosa",
+            "cantidad": 1,
+            "precio":  100000,
+            "img": "./img/A51.jfif"
+        },
+        {
+            "id": 12,
+            "nombre": "Smartphone Samsung Galaxy S23+ 512GB Green 5G + Galaxy Buds2 Negro",
+            "cantidad": 1,
+            "precio": 100000,
+            "img": "./img/s23.jfif"
+        }    
+    ]
+}
