@@ -101,9 +101,10 @@ class CarritoController {
 const controladorProductos = new ProductoController();
 controladorProductos.mostrarEnDOM();
 
+//Promesa de productos.json
 const getProductos = async () =>{
     try{
-        const respuesta = await fetch('./json/productos.json');
+        const respuesta = await fetch('../json/productos.json');
         const jsonProductos = await respuesta.json();
 
         controladorProductos.listaProductos = jsonProductos.tecnologia
@@ -114,17 +115,17 @@ const getProductos = async () =>{
 }
 getProductos()
 
-
-
 const controladorCarrito = new CarritoController();
 controladorCarrito.verificarExistenciaEnStorage();
 
+//Función que llama a 3 métodos de CarritoController
 function mostrarCarrito() {
     controladorCarrito.mostrarEnDom()
     controladorCarrito.precioTotal()
     controladorCarrito.guardarEnStorage()
 }
 
+//Funciones del carrito
 function agregarAlCarrito(id) {
     let producto = controladorProductos.listaProductos.find(producto => producto.id == id);
     console.log(producto)
