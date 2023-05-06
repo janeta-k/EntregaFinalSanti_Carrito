@@ -1,7 +1,6 @@
-
 class ProductoController {
     constructor() {
-        this.listaProductos = []
+        this.listaProductos = [];
         this.contenedor_productos = document.getElementById("contenedor_productos");
     }
 
@@ -15,15 +14,15 @@ class ProductoController {
                     <p class="card-text">$${producto.precio}</p>
                     <a href="#" onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary">Agregar al Carro</a>
                 </div>
-            </div>`
-        })
+            </div>`;
+        });
 
     }
 }
 
 class CarritoController {
     constructor() {
-        this.listaCarrito = []
+        this.listaCarrito = [];
         this.contenedor_carrito = document.getElementById("contenedor_carrito");
         this.calculo_total = document.getElementById("total");
     }
@@ -37,12 +36,12 @@ class CarritoController {
         this.listaCarrito = JSON.parse(localStorage.getItem("listaCarrito")) || [];
 
         if (this.listaCarrito.length > 0) {
-            this.mostrarEnDom()
+            this.mostrarEnDom();
         }
     }
 
     limpiarCarritoEnStorage() {
-        localStorage.removeItem("listaCarrito")
+        localStorage.removeItem("listaCarrito");
     }
 
     agregar(producto) {
@@ -50,12 +49,12 @@ class CarritoController {
     }
 
     limpiar() {
-        this.contenedor_carrito.innerHTML = ""
-        this.calculo_total.innerHTML = ""
+        this.contenedor_carrito.innerHTML = "";
+        this.calculo_total.innerHTML = "";
     }
 
     mostrarEnDom() {
-        this.limpiar()
+        this.limpiar();
 
         this.listaCarrito.forEach(producto => {
             this.contenedor_carrito.innerHTML += `
@@ -77,24 +76,24 @@ class CarritoController {
                 </div>
               </div>
             </div>
-        </div>`
-        })
+        </div>`;
+        });
 
-        this.mostrarTotalEnDom()
+        this.mostrarTotalEnDom();
     }
 
     precioTotal() {
-        let sumatoria_total = 0
+        let sumatoria_total = 0;
 
         for (let i = 0; i < this.listaCarrito.length; i++) {
             sumatoria_total += this.listaCarrito[i].precio * this.listaCarrito[i].cantidad;
         }
 
-        return sumatoria_total
+        return sumatoria_total;
     }
 
     mostrarTotalEnDom() {
-        this.calculo_total.innerHTML = this.precioTotal()
+        this.calculo_total.innerHTML = this.precioTotal();
     }
 }
 
@@ -102,44 +101,44 @@ const controladorProductos = new ProductoController();
 controladorProductos.mostrarEnDOM();
 
 //Promesa de productos.json
-const getProductos = async () =>{
-    try{
+const getProductos = async () => {
+    try {
         const respuesta = await fetch('../json/productos.json');
         const jsonProductos = await respuesta.json();
 
-        controladorProductos.listaProductos = jsonProductos.tecnologia
-        controladorProductos.mostrarEnDOM()
-    }catch (error){
+        controladorProductos.listaProductos = jsonProductos.tecnologia;
+        controladorProductos.mostrarEnDOM();
+    } catch (error) {
         console.log(error.message);
     }
 }
-getProductos()
+getProductos();
 
 const controladorCarrito = new CarritoController();
 controladorCarrito.verificarExistenciaEnStorage();
 
 //Función que llama a 3 métodos de CarritoController
 function mostrarCarrito() {
-    controladorCarrito.mostrarEnDom()
-    controladorCarrito.precioTotal()
-    controladorCarrito.guardarEnStorage()
+    controladorCarrito.mostrarEnDom();
+    controladorCarrito.precioTotal();
+    controladorCarrito.guardarEnStorage();
 }
 
 //Funciones del carrito
 function agregarAlCarrito(id) {
     let producto = controladorProductos.listaProductos.find(producto => producto.id == id);
-    console.log(producto)
+    console.log(producto);
     let productoCarrito = controladorCarrito.listaCarrito.find(producto => producto.id == id);
-    console.log(productoCarrito)
+    console.log(productoCarrito);
 
-    let booleano = controladorCarrito.listaCarrito.some(producto => producto.id == id)
+    let booleano = controladorCarrito.listaCarrito.some(producto => producto.id == id);
 
     if (booleano) {
-        productoCarrito.cantidad++
-        mostrarCarrito()
+        productoCarrito.cantidad++;
+        mostrarCarrito();
     } else {
-        controladorCarrito.agregar(producto)
-        mostrarCarrito()
+        controladorCarrito.agregar(producto);
+        mostrarCarrito();
     }
     Toastify({
         text: "Se agregó al carrito",
@@ -150,31 +149,31 @@ function agregarAlCarrito(id) {
         position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
         },
-        onClick: function(){} // Callback after click
-      }).showToast();
+        onClick: function () { } // Callback after click
+    }).showToast();
 
 }
 
 
 function incrementarCantidad(id) {
-    let producto = controladorCarrito.listaCarrito.find(producto => producto.id == id)
+    let producto = controladorCarrito.listaCarrito.find(producto => producto.id == id);
 
-    producto.cantidad++
-    mostrarCarrito()
+    producto.cantidad++;
+    mostrarCarrito();
 }
 
 function disminuirCantidad(id) {
-    let producto = controladorCarrito.listaCarrito.find(producto => producto.id == id)
+    let producto = controladorCarrito.listaCarrito.find(producto => producto.id == id);
 
-    producto.cantidad--
+    producto.cantidad--;
 
     if (producto.cantidad == 0) {
-        quitarProducto(id)
+        quitarProducto(id);
     }
 
-    mostrarCarrito()
+    mostrarCarrito();
 }
 
 function quitarProducto(id) {
@@ -185,7 +184,7 @@ function quitarProducto(id) {
     let indice = controladorCarrito.listaCarrito.findIndex(producto => producto.id == id);
     controladorCarrito.listaCarrito.splice(indice, 1);
 
-    mostrarCarrito()
+    mostrarCarrito();
 }
 
 function pagar() {
@@ -203,12 +202,12 @@ function pagar() {
                 'Deleted!',
                 'Your file has been deleted.',
                 'success'
-            )
-            controladorCarrito.limpiar()
-            controladorCarrito.limpiarCarritoEnStorage()
+            );
+            controladorCarrito.limpiar();
+            controladorCarrito.limpiarCarritoEnStorage();
 
-            controladorCarrito.listaCarrito = []
-            controladorCarrito.calculo_total.innerHTML = "<span>0</span>"
+            controladorCarrito.listaCarrito = [];
+            controladorCarrito.calculo_total.innerHTML = "<span>0</span>";
 
             Swal.fire({
                 position: 'bottom-end',
@@ -216,9 +215,9 @@ function pagar() {
                 title: 'Su compra se realizó exitosamente :)',
                 showConfirmButton: false,
                 timer: 2500
-            })
+            });
         }
-    })
+    });
 
 }
 
