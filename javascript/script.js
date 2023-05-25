@@ -100,7 +100,7 @@ class CarritoController {
 const controladorProductos = new ProductoController();
 controladorProductos.mostrarEnDOM();
 
-//Promesa de productos.json
+//Promesa de API Api_Productos
 const getProductos = async () => {
     try {
         const respuesta = await fetch('https://my-json-server.typicode.com/janeta-k/Api_Productos/db');
