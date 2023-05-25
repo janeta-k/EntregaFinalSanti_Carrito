@@ -103,7 +103,7 @@ controladorProductos.mostrarEnDOM();
 //Promesa de productos.json
 const getProductos = async () => {
     try {
-        const respuesta = await fetch('../json/productos.json');
+        const respuesta = await fetch('https://my-json-server.typicode.com/janeta-k/Api_Productos/db');
         const jsonProductos = await respuesta.json();
 
         controladorProductos.listaProductos = jsonProductos.tecnologia;
