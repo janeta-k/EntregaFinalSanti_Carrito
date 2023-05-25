@@ -3,7 +3,7 @@
     font-size: 2.2rem;
     font-weight: 600;
     text-align: center;
-    color: #503629;
+    color: #378dfc;
 }
 
 .button__ver-mas {
@@ -31,5 +31,6 @@
     width: 100%;
 }
 
-
-
+.modal-footer {
+    justify-content: space-evenly;
+}
